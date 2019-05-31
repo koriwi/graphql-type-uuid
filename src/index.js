@@ -12,14 +12,14 @@ const GraphQLUUID = new GraphQLScalarType({
       throw new TypeError(`UUID cannot represent non-UUID value: ${value}`);
     }
 
-    return value.toLowerCase();
+    return value.toString().toLowerCase();
   },
   parseValue: value => {
     if (!isUUID(value)) {
       throw new TypeError(`UUID cannot represent non-UUID value: ${value}`);
     }
 
-    return value.toLowerCase();
+    return value.toString().toLowerCase();
   },
   parseLiteral: ast => {
     if (ast.kind === Kind.STRING) {
